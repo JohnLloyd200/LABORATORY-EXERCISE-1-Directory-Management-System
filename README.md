@@ -51,5 +51,15 @@ void changeDirectory() {
     system("pause");
 }
 
+int main() {
+    int choice;
+    do {
+        system("cls");  
+        std::cout << "\nMAIN MENU\n";
+        std::cout << "1. To Display List of Files\n";
+        std::cout << "2. To Create New Directory\n";
+        std::cout << "3. To Change the Working Directory\n";
+        std::cout << "4. Exit\n";
+        std::cout << "Enter the Number: ";
+        std::cin >> choice;
 
-    
