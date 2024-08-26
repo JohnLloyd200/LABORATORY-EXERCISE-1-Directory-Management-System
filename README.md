@@ -20,3 +20,23 @@ void displayDirectoryMenu();
 void handleDirectorySelection(int choice);
 void exitProgram();
 
+int main() {
+    int choice;
+    do {
+        displayMainMenu();
+        cin >> choice;
+        handleMainMenuSelection(choice);
+    } while (choice != 4);
+    return 0;
+}
+
+void displayMainMenu() {
+    cout << "\nDirectory Management System\n";
+    cout << "1. To Display List of Files\n";
+    cout << "2. To Create New Directory\n";
+    cout << "3. To Change the Working Directory\n";
+    cout << "4. Exit\n";
+    cout << "Enter your choice: ";
+}
+
+
