@@ -129,6 +129,52 @@ void createDirectory() {
     }
 }
 
+void changeDirectory() {
+    int choice;
+    displayDirectoryMenu();
+    cin >> choice;
+    handleDirectorySelection(choice);
+}
+
+void displayDirectoryMenu() {
+    cout << "\nChange Directory Menu\n";
+    cout << "1. Move one step back (to the parent directory)\n";
+    cout << "2. Move to the root directory\n";
+    cout << "3. Move to a specific directory\n";
+    cout << "Enter your choice: ";
+}
+
+void handleDirectorySelection(int choice) {
+    switch (choice) {
+        case 1:
+            fs::current_path(fs::current_path().parent_path());
+            cout << "Moved to parent directory: " << fs::current_path() << "\n";
+            break;
+        case 2:
+            fs::current_path(fs::path("/"));
+            cout << "Moved to root directory: " << fs::current_path() << "\n";
+            break;
+        case 3: {
+            string dirName;
+            cout << "Enter the name of the directory to move to: ";
+            cin >> dirName;
+            if (fs::exists(dirName) && fs::is_directory(dirName)) {
+                fs::current_path(dirName);
+                cout << "Moved to directory: " << fs::current_path() << "\n";
+            } else {
+                cout << "Error: Directory " << dirName << " does not exist.\n";
+            }
+            break;
+        }
+        default:
+            cout << "Invalid choice. Returning to main menu.\n";
+    }
+}
+
+void exitProgram() {
+    cout << "Exiting the program. Goodbye!\n";
+    exit(0);
+}
 
 
 
