@@ -39,4 +39,24 @@ void displayMainMenu() {
     cout << "Enter your choice: ";
 }
 
+void handleMainMenuSelection(int choice) {
+    switch (choice) {
+        case 1:
+            listFilesMenu();
+            break;
+        case 2:
+            createDirectory();
+            break;
+        case 3:
+            changeDirectory();
+            break;
+        case 4:
+            exitProgram();
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+    }
+}
+
+
 
